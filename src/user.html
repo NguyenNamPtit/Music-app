@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.png" />
+    <link rel="stylesheet" href="./css/blog.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/User.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User-MusicBeat</title>
+  </head>
+  <body>
+    <div id="toast-container"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="clo-lg-2 col-md-2 flex a-center">
+          <div class="basic-logo">
+            <a href="" rel="home">
+              <img src="/img/Basic Logo.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-10">
+          <div class="main-header-wrapper-top">
+            <div class="basic-menu flex a-center">
+              <nav>
+                <ul class="title">
+                  <li>
+                    <a href="./index.html" rel="">Home</a>
+                  </li>
+                  <li>
+                    <a href="./about.html" rel=" ">Albums</a>
+                  </li>
+                  <li>
+                    <a href="./singger.html" rel="">Singer</a>
+                  </li>
+                  <li>
+                    <a href="./music.html" rel="">Music</a>
+                  </li>
+                  <li>
+                    <a href="./blog.html" rel="">Blog</a>
+                  </li>
+                  <!-- <li>
+                    <a href="" rel="">Contact Us</a>
+                  </li> -->
+                </ul>
+              </nav>
+              <div class="search">
+                <span class="search-icon">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="search" placeholder="Tìm kiếm..." />
+              </div>
+            </div>
+            <div class="header-btn flex">
+              <div class="users">
+                <a><i class="bi bi-person-circle icon-user button-none"></i></a>
+              </div>
+              <div class="btn-register">
+                <button>
+                  <a href="./register.html" rel="">Register</a>
+                </button>
+              </div>
+              <div class="btn-login">
+                <button>
+                  <a href="./login.html" rel="">Login</a>
+                </button>
+              </div>
+              <div class="btn-logout button-none">
+                <button>Logout</button>
+              </div>
+            </div>
+            <div class="click-navbar">
+              <button>
+                <i class="bi bi-list play-moble-none icon-menu-moble"></i>
+                <i class="bi bi-x close-menu-moble"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="nav-overlay"></div>
+      </div>
+      <div class="menu-moble">
+        <nav>
+          <ul class="title-moble">
+            <li>
+              <a href="./index.html" rel="">Home</a>
+            </li>
+            <li>
+              <a href="./about.html" rel=" ">Albums</a>
+            </li>
+            <li>
+              <a href="./singger.html" rel="">Singer</a>
+            </li>
+            <li>
+              <a href="./music.html" rel="">Music</a>
+            </li>
+            <li>
+              <a href="./blog.html" rel="">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="titlle">
+        <h2>USER</h2>
+        <p><a href="./index.html">Homepage</a> <span>> Users</span></p>
+      </div>
+    </div>
+    <div class="info-users">
+      <div class="info-account col-lg-6 col-md-6 col-xs-12">
+        <h2>My Account</h2>
+        <form id="account-form">
+          <div class="users-name">
+            <p>User Name:</p>
+            <input type="text" placeholder="User Name" id="user-name" />
+          </div>
+          <div class="email-account">
+            <p>Email:</p>
+            <input type="email" placeholder="Email" id="email" />
+          </div>
+          <div class="phone-account">
+            <p>Phone:</p>
+            <input type="number" placeholder="Phone" id="phone" />
+          </div>
+          <div class="password-account">
+            <p>Password:</p>
+            <input type="password" placeholder="Password" id="password" />
+          </div>
+          <div class="btn-change-info-account">
+            <button>Change Account</button>
+          </div>
+          <div class="btn-save-info-account display-btn">
+            <button>Save Account</button>
+          </div>
+        </form>
+      </div>
+      <div class="playlist col-lg-6 col-md-6 col-xs-12">
+        <h2>Playlist Music</h2>
+        <div class="playlist-musicc">
+          <p class="note-message display-btn">Không có bài hát nào</p>
+          <div class="playlist-music">
+            <!-- <div class="song">
+            <div class="song-sanbox flex">
+              <div class="wrapper-song-box">
+                <img
+                  src="https://res.cloudinary.com/dfyhhahli/image/upload/v1679942177/music/1/1625828311511_500_earmoe.jpg"
+                />
+                <i data-id="0" class="bi bi-play-circle icon-play-song-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+
+              <div class="info-song">
+                <h5>Tay To</h5>
+                <p>RPT MCK, PhongKhin</p>
+                <button>Play</button>
+                <button class="btn-close-music"><i class="bi bi-x"></i></button>
+              </div>
+            </div>
+          </div> -->
+            <!-- <div class="song">
+            <div class="song-sanbox flex">
+              <div class="wrapper-song-box">
+                <img
+                  src="https://res.cloudinary.com/dfyhhahli/image/upload/v1679942177/music/1/1625828311511_500_earmoe.jpg"
+                />
+                <i data-id="0" class="bi bi-play-circle icon-play-song-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+
+              <div class="info-song">
+                <h5>Tay To</h5>
+                <p>RPT MCK, PhongKhin</p>
+                <button>Play</button>
+                <button class="btn-close-music"><i class="bi bi-x"></i></button>
+              </div>
+            </div>
+          </div> -->
+            <!-- <div class="song">
+            <div class="song-sanbox flex">
+              <div class="wrapper-song-box">
+                <img
+                  src="https://res.cloudinary.com/dfyhhahli/image/upload/v1679942177/music/1/1625828311511_500_earmoe.jpg"
+                />
+                <i data-id="0" class="bi bi-play-circle icon-play-song-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+
+              <div class="info-song">
+                <h5>Tay To</h5>
+                <p>RPT MCK, PhongKhin</p>
+                <button>Play</button>
+                <button class="btn-close-music"><i class="bi bi-x"></i></button>
+              </div>
+            </div>
+          </div> -->
+            <!-- <div class="song">
+            <div class="song-sanbox flex">
+              <div class="wrapper-song-box">
+                <img
+                  src="https://res.cloudinary.com/dfyhhahli/image/upload/v1679942177/music/1/1625828311511_500_earmoe.jpg"
+                />
+                <i data-id="0" class="bi bi-play-circle icon-play-song-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+
+              <div class="info-song">
+                <h5>Tay To</h5>
+                <p>RPT MCK, PhongKhin</p>
+                <button>Play</button>
+                <button class="btn-close-music"><i class="bi bi-x"></i></button>
+              </div>
+            </div>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer flex">
+      <div class="container">
+        <div class="row">
+          <div class="time-work col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="logo">
+              <img src="./assets/img/Basic Logo.png" alt="" />
+            </div>
+            <div class="time">
+              <p>Weekdays: 08:00am - 08:00pm</p>
+              <p>Weekends: 10:00am - 06:00pm</p>
+            </div>
+            <div class="flow-us flex">
+              <p>Flow Us</p>
+              <div class="flow">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-google"></i>
+              </div>
+            </div>
+          </div>
+          <div class="contact col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <h6>CONTACT</h6>
+            <div class="info-contact">
+              <div class="phone flex">
+                <i class="bi bi-telephone-fill"></i>
+                <p>+ 96 6860 104</p>
+              </div>
+              <div class="address flex">
+                <i class="bi bi-cursor-fill"></i>
+                <p>91 Đ. Đại Mỗ, Ngọc Đại, Nam Từ Liêm, Hà Nội</p>
+              </div>
+              <div class="email flex">
+                <i class="bi bi-envelope-fill"></i>
+                <p>Musicbeat@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="newsletter col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"
+          >
+            <h2>NEWSLETTER</h2>
+            <div class="info-newsletter">
+              <p>Join our email newsletter for news and tips.</p>
+              <div class="button-email">
+                <button>Enter your E-mail</button>
+              </div>
+              <div class="button-sub">
+                <button>Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="./js/blog.js"></script>
+    <script src="./js/user.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

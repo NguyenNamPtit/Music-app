@@ -1,0 +1,101 @@
+/*User*/
+.info-users {
+  background-color: #0e1d30;
+  display: flex;
+  align-items: center;
+}
+.row {
+  --bs-gutter-x: 0;
+}
+
+/*Info Account*/
+.info-account h2 {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.info-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.users-name p,
+.email-account p,
+.phone-account p,
+.password-account p,
+.password-account p {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.users-name input,
+.email-account input,
+.phone-account input,
+.password-account input,
+.password-account input {
+  height: 40px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.btn-change-info-account button,
+.btn-save-info-account button {
+  margin-top: 20px;
+  background-color: #b06ab3;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  border: none;
+  transition: 0.5s ease;
+}
+.btn-change-info-account:hover button,
+.btn-save-info-account:hover button {
+  background: transparent;
+  border: 2px solid #b06ab3;
+  box-shadow: 0 0 10px 0 #b06ab3 inset, 0 0 10px 4px #b06ab3;
+  border-radius: 0px;
+}
+.display-btn {
+  display: none;
+}
+
+/** playlist Music **/
+.playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.playlist h2 {
+  font-size: 36px;
+  color: #fff;
+
+  margin-bottom: 20px;
+}
+.note-message {
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.playlist-musicc {
+  border: 2px solid #b06ab3;
+  width: 500px;
+}
+.song {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn-close-music {
+  width: 30px !important;
+}
+.info-song h5 {
+  color: #fff;
+}

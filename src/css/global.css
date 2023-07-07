@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-header: #1b2039;
+  --color-pink: #b06ab3;
+  --color-background: #0e1d30;
+  --purple: #b06ab3;
+  --purple-bold: #a66cb5;
+  --bg-color: #14182a;
+  --bg-ofcanvas: #21253e;
+  --white: #ffffff;
+  --green: rgb(52, 218, 200);
+  --arrow-color: #8fa4c2;
+  --dark-gray: #7b7c8b;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  /* max-width: 100%; */
+  vertical-align: middle;
+}
+
+body {
+  font-family: Inter, sans-serif;
+}
+.flex {
+  display: flex;
+}
+.flex.column {
+  flex-direction: column;
+}
+.flex.j-end {
+  justify-content: flex-end;
+}
+.flex.j-center {
+  justify-content: center;
+}
+.flex.j-between {
+  justify-content: space-between;
+}
+.flex.j-end {
+  justify-content: flex-end;
+}
+.flex.a-center {
+  align-items: center;
+}
+.flex.a-start {
+  align-items: flex-start;
+}
+input:focus {
+  outline: none;
+}
+
+/* animation */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

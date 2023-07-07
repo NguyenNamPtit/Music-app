@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.png" />
+    <link rel="stylesheet" href="./css/detailblog.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog-MusicBeat</title>
+  </head>
+  <body>
+    <div id="toast-container"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="clo-lg-2 col-md-2 flex a-center">
+          <div class="basic-logo">
+            <a href="" rel="home">
+              <img src="/img/Basic Logo.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-10">
+          <div class="main-header-wrapper-top">
+            <div class="basic-menu flex a-center">
+              <nav>
+                <ul class="title">
+                  <li>
+                    <a href="./index.html" rel="">Home</a>
+                  </li>
+                  <li>
+                    <a href="./about.html" rel=" ">Albums</a>
+                  </li>
+                  <li>
+                    <a href="./singger.html" rel="">Singer</a>
+                  </li>
+                  <li>
+                    <a href="./music.html" rel="">Music</a>
+                  </li>
+                  <li>
+                    <a href="./blog.html" rel="">Blog</a>
+                  </li>
+                  <!-- <li>
+                    <a href="" rel="">Contact Us</a>
+                  </li> -->
+                </ul>
+              </nav>
+              <div class="search">
+                <span class="search-icon">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="search" placeholder="Tìm kiếm..." />
+              </div>
+            </div>
+            <div class="header-btn flex">
+              <div class="users">
+                <a><i class="bi bi-person-circle icon-user button-none"></i></a>
+              </div>
+              <div class="btn-register">
+                <button>
+                  <a href="./register.html" rel="">Register</a>
+                </button>
+              </div>
+              <div class="btn-login">
+                <button>
+                  <a href="./login.html" rel="">Login</a>
+                </button>
+              </div>
+              <div class="btn-logout button-none">
+                <button>Logout</button>
+              </div>
+            </div>
+            <div class="click-navbar">
+              <button>
+                <i class="bi bi-list play-moble-none icon-menu-moble"></i>
+                <i class="bi bi-x close-menu-moble"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="nav-overlay"></div>
+      </div>
+      <div class="menu-moble">
+        <nav>
+          <ul class="title-moble">
+            <li>
+              <a href="./index.html" rel="">Home</a>
+            </li>
+            <li>
+              <a href="./about.html" rel=" ">Albums</a>
+            </li>
+            <li>
+              <a href="./singger.html" rel="">Singer</a>
+            </li>
+            <li>
+              <a href="./music.html" rel="">Music</a>
+            </li>
+            <li>
+              <a href="./blog.html" rel="">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="titlle">
+        <h2>BLOG</h2>
+      </div>
+    </div>
+    <div class="list-blog">
+      <div class="containerr row flex">
+        <div class="big-blog col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="blog">
+            <img src="./assets/img/blog1.jpg" alt="" />
+            <div class="time-blog flex">
+              <div class="person">
+                <i class="bi bi-person-fill"></i>
+                <span>Templatemonster</span>
+              </div>
+              <div class="time">
+                <i class="bi bi-table"></i>
+                <span>November 2, 2023</span>
+              </div>
+            </div>
+            <div class="info-blog">
+              <h2>The MusicBeat</h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
+                commodi repellat aut fugiat eos, officia reprehenderit eaque,
+                fugit consequuntur maxime reiciendis voluptatem voluptate hic
+                molestias sequi quae delectus ducimus aspernatur?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./js/detailblog.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

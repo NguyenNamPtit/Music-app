@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.png" />
+    <link rel="stylesheet" href="./css/detailmusic.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusicBeat</title>
+  </head>
+  <body>
+    <div id="toast-container"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="clo-lg-2 col-md-2 flex a-center">
+          <div class="basic-logo">
+            <a href="" rel="home">
+              <img src="/img/Basic Logo.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-10">
+          <div class="main-header-wrapper-top">
+            <div class="basic-menu flex a-center">
+              <nav>
+                <ul class="title">
+                  <li>
+                    <a href="./index.html" rel="">Home</a>
+                  </li>
+                  <li>
+                    <a href="./about.html" rel=" ">Albums</a>
+                  </li>
+                  <li>
+                    <a href="./singger.html" rel="">Singer</a>
+                  </li>
+                  <li>
+                    <a href="./music.html" rel="">Music</a>
+                  </li>
+                  <li>
+                    <a href="./blog.html" rel="">Blog</a>
+                  </li>
+                  <!-- <li>
+                    <a href="" rel="">Contact Us</a>
+                  </li> -->
+                </ul>
+              </nav>
+              <div class="search">
+                <span class="search-icon">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="search" placeholder="Tìm kiếm..." />
+              </div>
+            </div>
+            <div class="header-btn flex">
+              <div class="users">
+                <a><i class="bi bi-person-circle icon-user button-none"></i></a>
+              </div>
+              <div class="btn-register">
+                <button>
+                  <a href="./register.html" rel="">Register</a>
+                </button>
+              </div>
+              <div class="btn-login">
+                <button>
+                  <a href="./login.html" rel="">Login</a>
+                </button>
+              </div>
+              <div class="btn-logout button-none">
+                <button>Logout</button>
+              </div>
+            </div>
+            <div class="click-navbar">
+              <button>
+                <i class="bi bi-list play-moble-none icon-menu-moble"></i>
+                <i class="bi bi-x close-menu-moble"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="nav-overlay"></div>
+      </div>
+      <div class="menu-moble">
+        <nav>
+          <ul class="title-moble">
+            <li>
+              <a href="./index.html" rel="">Home</a>
+            </li>
+            <li>
+              <a href="./about.html" rel=" ">Albums</a>
+            </li>
+            <li>
+              <a href="./singger.html" rel="">Singer</a>
+            </li>
+            <li>
+              <a href="./music.html" rel="">Music</a>
+            </li>
+            <li>
+              <a href="./blog.html" rel="">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="titlle">
+        <h2>The MusicBeat</h2>
+      </div>
+    </div>
+    <div class="box-albums">
+      <div class="albumss flex">
+        <img src="./assets/img/Albums5.jpg" alt="" />
+        <div>
+          <div class="info-albumss">
+            <h2>Endless Thing 2</h2>
+
+            <p><span>Released:</span> September 20th, 2022</p>
+          </div>
+          <div class="list-buttonn">
+            <button class="playy-all">Play All</button>
+            <button class="add-to-queue">Add To Queue</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-albums">
+        <div class="container">
+          <div class="title-albums">
+            <h2>Listen The Best Album</h2>
+          </div>
+          <div class="list-albumsss mt-4">
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="./detailmusic.html"
+                  >Lucky</a
+                >
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container">
+          <div class="title-albums">
+            <h2>Trending Albums</h2>
+          </div>
+          <div class="list-albumsss mt-4">
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+  
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+  
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+  
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div id="dpp">
+          <div class="title-albums">
+            <h2>Trending Albums</h2>
+          </div>
+          <div class="slider-albums flex">
+            <div class="item-albums">
+              <img src="./assets/img/Albums6.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+            <div class="item-albums">
+              <img src="./assets/img/Albums7.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+            <div class="item-albums">
+              <img src="./assets/img/Albums8.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+            <div class="item-albums">
+              <img src="./assets/img/Albums9.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+            <div class="item-albums">
+              <img src="./assets/img/Albums4.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+            <div class="item-albums">
+              <img src="./assets/img/Albums5.jpg" alt="" />
+              <div class="info-albums">
+                <h3>Cloud Nine</h3>
+                <p>Jennifer Kelly, Virginia Harris</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script type="module" src="./js/detailmusic.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>
