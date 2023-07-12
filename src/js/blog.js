@@ -47,7 +47,7 @@ const RenderBlog = (items) =>
   <p>
     ${items.Content}
   </p>
-  <p ><a  class="readmore">Read More...</a></p>
+  <p ><a  class="readmore"  >Read More...</a></p>
 </div>
 </div>
         </div>
@@ -122,7 +122,7 @@ if (storedUser) {
   logout.addEventListener("click", Logout);
 }
 
-// Tạp phân trang cho  trang web
+// Tạp phân trang cho trang web
 
 const itemsPerPage = 4; // Số phần tử hiển thị trên mỗi trang
 let currentPage = 1;
@@ -142,8 +142,10 @@ function displayPage(pageNumber) {
   const container = document.querySelector(".Blog-bigg");
   container.innerHTML = ""; // Xóa nội dung container cũ
 
-  const blogItems = RenderBlog(slicedData);
+  const blogItems = RenderBlogs(slicedData);
   container.innerHTML = blogItems;
+
+  markCurrentPage(); // Đánh dấu trang hiện tại
 }
 
 // Hàm tạo phân trang
@@ -153,7 +155,7 @@ function createPagination() {
   paginationDiv.innerHTML = "";
 
   for (let i = 1; i <= totalPages; i++) {
-    const pageLink = document.createElement("a");
+    const pageLink = document.createElement("button");
     pageLink.classList.add("page");
     pageLink.href = "#blogs";
     pageLink.textContent = i;
@@ -161,63 +163,59 @@ function createPagination() {
       currentPage = i;
       displayPage(currentPage);
       window.scrollTo(0, 0); // Cuộn trang lên đầu khi chuyển trang
+      markCurrentPage(); // Đánh dấu trang hiện tại
     });
 
     paginationDiv.appendChild(pageLink);
   }
+
+  markCurrentPage(); // Đánh dấu trang hiện tại sau khi tạo phân trang
 }
 
-const bloggss = $(".Blog-bigg");
+// Đánh dấu trang hiện tại bằng lớp active
+function markCurrentPage() {
+  const pages = document.getElementsByClassName("page");
 
-const RenderBlogs = (items) =>
-  items
+  for (let i = 0; i < pages.length; i++) {
+    if (i + 1 === currentPage) {
+      pages[i].classList.add("active");
+    } else {
+      pages[i].classList.remove("active");
+    }
+  }
+}
+
+// Hàm render các mục blog
+function RenderBlogs(items) {
+  return items
     .map(
-      (items) => `
-<div data-id="${items.id}" class="big-blog col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<div class="blog">
-<img src="${items.img}" alt="" />
-<div class="time-blog flex">
-  <div class="person">
-    <i class="bi bi-person-fill"></i>
-    <span>Templatemonster</span>
-  </div>
-  <div class="time">
-    <i class="bi bi-table"></i>
-    <span>${items.releasedate}</span>
-  </div>
-</div>
-<div class="info-blog">
-  <h2>${items.title}</h2>
-  <p>
-    ${items.Content}
-  </p>
-  <p class="readmore"><a >Read More...</a></p>
-</div>
-</div>
-</div>
-`
+      (item) => `
+    <div data-id="${item.id}" class="big-blog col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="blog">
+        <img src="${item.img}" alt="" />
+        <div class="time-blog flex">
+          <div class="person">
+            <i class="bi bi-person-fill"></i>
+            <span>Templatemonster</span>
+          </div>
+          <div class="time">
+            <i class="bi bi-table"></i>
+            <span>${item.releasedate}</span>
+          </div>
+        </div>
+        <div class="info-blog">
+          <h2>${item.title}</h2>
+          <p>${item.Content}</p>
+          <p ><a class="readmore">Read More...</a></p>
+        </div>
+      </div>
+    </div>
+    `
     )
     .join("");
-
+}
 // Gọi hàm để lấy dữ liệu từ API và khởi tạo phân trang
 fetchDataFromAPI();
-
-// Css cho nút
-const pagination = document.getElementById("pagination");
-const pages = pagination.getElementsByClassName("page");
-
-// Lắng nghe sự kiện click trên từng nút
-for (let i = 0; i < pages.length; i++) {
-  pages[i].addEventListener("click", function () {
-    // Xóa lớp active khỏi tất cả các nút
-    for (let j = 0; j < pages.length; j++) {
-      pages[j].classList.remove("active");
-    }
-
-    // Thêm lớp active vào nút được click
-    this.classList.add("active");
-  });
-}
 
 // chuyển sang trang daital
 const bloglist = document.querySelector(".Blog-bigg");
@@ -227,19 +225,30 @@ bloglist.addEventListener("click", (e) => {
 
   //kiểm tra xem bút được click có phải read more hay không
   if (target.classList.contains("readmore")) {
-    //lấy id của sản phẩm
-    const blogId = target.parentNode.getAttribute("data-id");
-    console.log(blogId);
-    // điều hướng đến trang chi tiết sản phẩm
-    redirectToProductDetail(blogId);
+     // Lấy phần tử cha chứa thuộc tính data-id
+     const blogItem = target.closest(".big-blog");
+
+     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+     if (blogItem && blogItem.dataset.id) {
+       const blogId = blogItem.dataset.id;
+       console.log(blogId);
+       // Điều hướng đến trang chi tiết sản phẩm
+       redirectToProductDetail(blogId);
+     }
   }
 });
 
 // Hàm điều hướng đến trang chi tiết sản phẩm
 function redirectToProductDetail(blogId) {
   // Định dạng URL của trang chi tiết dựa trên productId
-  const detailUrl = `detail.html?id=${blogId}`;
+  const detailUrl = `detailblog.html?id=${blogId}`;
 
   // Chuyển hướng đến trang chi tiết
   window.location.href = detailUrl;
+  console.log(detailUrl);
 }
+
+
+
+
+

@@ -74,38 +74,55 @@ if (storedUser) {
 //lấy id thông tin sản phẩm và hiển thị
 // Lấy tham số id từ URL
 const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams)
 const blogId = urlParams.get("id");
 
 // Hàm lấy thông tin chi tiết sản phẩm từ API
-function getProductDetail(blogId) {
-  // Địa chỉ URL của API và tham số productId
-  const apiUrl = `https://api.example.com/products/${blogId}`;
-
-  // Gửi yêu cầu GET đến API và nhận kết quả trả về dưới dạng JSON
-  return fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      // Trả về thông tin chi tiết của sản phẩm
-      return data;
+function getProductDetails(blogId) {
+  fetch(` https://api-app-mu.vercel.app/blogs/${blogId}`)
+    .then(response => response.json())
+    .then(data => {
+      // Hiển thị thông tin sản phẩm trong giao diện người dùng
+      displayProductDetails(data);
+      console.log(data);
     })
-    .catch((error) => {
-      console.log("Error:", error);
+    .catch(error => {
+      console.error(error);
     });
 }
+function displayProductDetails (data){
+  const blogContainer = document.querySelector('.big-blog');
 
-// Hàm hiển thị thông tin chi tiết sản phẩm lên trang
-function displayProductDetail(productDetail) {
-  // Lấy các phần tử trên trang
-  const detailTitle = document.getElementById("detail-title");
-  const detailDescription = document.getElementById("detail-description");
+  const blogItem = document.createElement('div');
+  blogItem.classList.add('blog');
 
-  // Hiển thị thông tin chi tiết lên trang
-  detailTitle.textContent = productDetail.title;
-  detailDescription.textContent = productDetail.description;
-  // Các thông tin chi tiết khác cũng có thể được hiển thị tương tự
+  blogItem.innerHTML = `
+  <img src="${data.img}" alt="" />
+  <div class="time-blog flex">
+    <div class="person">
+      <i class="bi bi-person-fill"></i>
+      <span>Templatemonster</span>
+    </div>
+    <div class="time">
+      <i class="bi bi-table"></i>
+      <span>${data.releasedate}</span>
+    </div>
+  </div>
+  <div class="info-blog">
+    <h2>${data.title}</h2>
+    <p>
+    ${data.Content}
+    </p>
+  </div>
+  `;
 
-  // Cập nhật nội dung trên trang tùy theo thông tin sản phẩm
+  blogContainer.appendChild(blogItem);
+
+
 }
+getProductDetails(blogId)
 
-getProductDetail(blogId);
-console.log(blogId);
+
+
+
+  

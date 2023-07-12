@@ -4,7 +4,7 @@
   justify-content: center;
   padding-bottom: 40px;
 }
-.pagination a {
+.pagination button {
   text-decoration: none;
   border-radius: 50%;
   background-color: #b06ab3;
@@ -17,11 +17,11 @@
   justify-content: center;
   align-items: center;
 }
-.pagination a:hover {
+.pagination button:hover {
   color: #b06ab3;
   background-color: #fff;
 }
-.pagination a.active {
+.pagination button.active {
   color: #b06ab3;
   background-color: #fff;
 }

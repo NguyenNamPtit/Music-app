@@ -136,24 +136,24 @@ const renderSong = (item) =>
   item
     .map(
       (item) => `
-      <div class="song  col-lg-4 col-md-6 col-sm-12  col-xs-12 ">
-        <div class="song-sanbox flex">
-        <div class="wrapper-song-box">
-            <img src="${item.img}" />
-            <i data-id="${item.id}" class="bi bi-play-circle icon-play-song-box"></i>
-            <div class="bg-overlay"></div>
+          <div class="song  col-lg-4 col-md-6 col-sm-12  col-xs-12 ">
+            <div class="song-sanbox flex">
+            <div class="wrapper-song-box">
+                <img src="${item.img}" />
+                <i data-id="${item.id}" class="bi bi-play-circle icon-play-song-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+    
+              <div class="info-song" >
+                <h5><a href="./detailmusic.html">${item.musicName}</a></h5>
+                <p>${item.singername}</p>
+                <button>Play</button>
+                <button data-id="${item.id}" class="btn-icon-heart"><a  class="bi bi-suit-heart icon-heart"></a></button>
+              </div>
+            </div>
           </div>
-
-          <div class="info-song">
-            <h5>${item.musicName}</h5>
-            <p>${item.singername}</p>
-            <button>Play</button>
-            <button><i class="bi bi-suit-heart"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      `
+          
+          `
     )
     .join("");
 
@@ -544,4 +544,108 @@ if (storedUser) {
     localStorage.setItem("Users", JSON.stringify(Users));
   };
   logout.addEventListener("click", Logout);
+}
+
+
+// Thêm bài hát vào playlist
+
+$(document).ready(function () {
+  $(".info-song").on("click", ".btn-icon-heart", function () {
+    var infoSongElement = $(this).closest(".info-song");
+
+    var storedUser = localStorage.getItem("Users");
+    if (storedUser) {
+      var Users = JSON.parse(storedUser);
+      var isLoggedIn = false;
+
+      for (var i = 0; i < Users.length; i++) {
+        var obj = Users[i];
+        if (obj.isLogin == true) {
+          isLoggedIn = true;
+          break;
+        }
+      }
+
+      if (isLoggedIn) {
+        handleIconHeartClick(infoSongElement);
+      } else {
+        showToast("Bạn cần đăng nhập để thêm bài hát");
+      }
+    } else {
+      showToast("Bạn cần đăng nhập để thêm bài hát");
+    }
+  });
+});
+
+function handleIconHeartClick(infoSongElement) {
+  if (localStorage.getItem("Playlist") === null) {
+    const itemId = infoSongElement.find(".btn-icon-heart").attr("data-id");
+    currentSong = itemId;
+    var playlist = [];
+    var Music = {
+      id: currentSong,
+      img: musicss[currentSong].img,
+      musicname: musicss[currentSong].musicName,
+      singgername: musicss[currentSong].singername,
+    };
+    playlist.push(Music);
+    showToast("Thêm bài hát thành công");
+    localStorage.setItem("Playlist", JSON.stringify(playlist));
+  } else {
+    var storedData = localStorage.getItem("Playlist");
+    var playlist = storedData ? JSON.parse(storedData) : [];
+
+    const itemId = infoSongElement.find(".btn-icon-heart").attr("data-id");
+    currentSong = itemId;
+
+    var valueToCheck = currentSong;
+    var keyToCheck = "id";
+    var isValueExists = playlist.some(function (obj) {
+      if (obj.hasOwnProperty(keyToCheck) && obj[keyToCheck] === valueToCheck) {
+        return true;
+      }
+    });
+
+    if (isValueExists) {
+      showToast("Bài hát đã tồn tại");
+    } else {
+      var Music = {
+        id: currentSong,
+        img: musicss[currentSong].img,
+        musicname: musicss[currentSong].musicName,
+        singgername: musicss[currentSong].singername,
+      };
+      playlist.push(Music);
+      showToast("Thêm bài hát thành công");
+      localStorage.setItem("Playlist", JSON.stringify(playlist));
+    }
+  }
+}
+
+function showToast(message) {
+  Toastify({
+    text: message,
+    duration: 1000,
+    close: false,
+    gravity: "top",
+    backgroundColor: "linear-gradient(to right, #b06ab3, #b06ab3)",
+  }).showToast();
+}
+
+//Khi click logou thì mảng Playlist sẽ về rỗng
+
+var storedData = localStorage.getItem("Playlist");
+if (storedData) {
+  var Playlist = JSON.parse(storedData);
+
+  const logoutclick = () => {
+    var playlist = [];
+    localStorage.setItem("Playlist", JSON.stringify(playlist));
+    setTimeout(function () {
+      // Điều hướng tới URL khác
+      window.location.href = "index.html";
+    }, 1500); // 5000ms = 5 giây
+  };
+
+  logout.addEventListener("click", logoutclick);
 }

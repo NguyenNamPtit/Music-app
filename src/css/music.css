@@ -398,7 +398,7 @@
   flex-direction: column;
   align-items: center;
 }
-.song:hover .info-song h5 {
+.song:hover .info-song h5 a {
   color: var(--color-pink);
 }
 .icon-play-song-box {
@@ -441,13 +441,17 @@
 .info-song {
   margin-left: 15px;
 }
-.info-song h5 {
+.info-song h5 a {
   font-size: 16px;
   color: #ffff;
   font-weight: 700;
   margin-bottom: 10px;
-  margin-top: 20px;
+
   text-overflow: ellipsis;
+  text-decoration: none;
+}
+.info-song h5 {
+  margin-top: 20px;
 }
 .song-sanbox {
   margin: auto;
@@ -459,6 +463,12 @@
   margin-bottom: 10px;
   text-overflow: ellipsis;
   width: 200px;
+}
+.icon-heart {
+  color: #fff;
+}
+.icon-heart:hover {
+  color: #fff;
 }
 .info-song button {
   width: 75px;
@@ -478,6 +488,8 @@
 
 .list-song {
   padding-bottom: 50px;
+
+  /* display: flex; */
 }
 .list-song.row {
   width: 100%;
