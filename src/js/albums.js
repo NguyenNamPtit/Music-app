@@ -23,6 +23,7 @@ $(".list-albumsss").slick({
 
 const loadApi = async () => {
   const musicss = await getApi(API_URL);
+  console.log(API_URL);
   // console.log(musicss);
 
   // render

@@ -7,11 +7,11 @@ import "slick-carousel/slick/slick.min.js";
 import $ from "jquery";
 import { musics } from "./db";
 // import "../css/global.css";
-import { API_URL, getApi } from "../utils/utils";
+import { API_BLOG_URL, getApi } from "../utils/utils";
 
 const loadApi = async () => {
-  const blogs = await getApi(API_URL);
-  // console.log(blogs);
+  const blogs = await getApi(API_BLOG_URL);
+  console.log(blogs);
 
   //in ra UI
   const bloggs = $(".Blog-bigg");
