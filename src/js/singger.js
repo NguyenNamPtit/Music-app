@@ -50,7 +50,7 @@ const renderAlbums = (items) =>
   items
     .map(
       (item) => `
-         <div class="music-box ">
+         <div data-id="${item.id}" class="music-box ">
             <div class="wrapper-music-box ">
               <img
                 class="img-music-box"
@@ -61,7 +61,7 @@ const renderAlbums = (items) =>
               <div class="bg-overlay"></div>
             </div>
             <div class="music-box-content mt-2">
-              <a  class="name-music-box fs-20" href="./detailalbums.html"
+              <a  class="name-music-box fs-20" 
                 >${item.singername}</a
               >
               
@@ -76,7 +76,7 @@ const renderAlbumss = (item) =>
   item
     .map(
       (item) => `
-      <div class="music-box">
+      <div data-id="${item.id}" class="music-box">
             <div class="wrapper-music-box">
               <img
                 class="img-music-box"
@@ -87,7 +87,7 @@ const renderAlbumss = (item) =>
               <div class="bg-overlay"></div>
             </div>
             <div class="music-box-content mt-2">
-              <a class="name-music-box fs-20" href="./detailalbums.html"
+              <a class="name-music-box fs-20" 
                 >${item.singername}</a
               >
               
@@ -102,7 +102,7 @@ const renderSong = (item) =>
   item
     .map(
       (item) => `
-          <div class="song  col-lg-4 col-md-6 col-sm-12  col-xs-12 ">
+          <div data-id="${item.id}" class="song  col-lg-4 col-md-6 col-sm-12  col-xs-12 ">
             <div class="song-sanbox flex">
             <div class="wrapper-song-box">
                 <img src="${item.img}" />
@@ -111,7 +111,7 @@ const renderSong = (item) =>
               </div>
     
               <div class="info-song" >
-                <h5><a href="./detailmusic.html">${item.musicName}</a></h5>
+                <h5><a class="name-music" >${item.musicName}</a></h5>
                 <p>${item.singername}</p>
                 <button>Play</button>
                 <button data-id="${item.id}" class="btn-icon-heart"><a  class="bi bi-suit-heart icon-heart"></a></button>
@@ -619,4 +619,99 @@ if (storedData) {
   };
 
   logout.addEventListener("click", logoutclick);
+}
+
+
+// chuyển sang trang daital
+const musiclist = document.querySelector(".list-albumsss1");
+
+musiclist.addEventListener("click", (e) => {
+  const target = e.target;
+
+  //kiểm tra xem bút được click có phải read more hay không
+  if (target.classList.contains("name-music-box")) {
+     // Lấy phần tử cha chứa thuộc tính data-id
+     const musicItem = target.closest(".music-box");
+
+     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+     if (musicItem && musicItem.dataset.id) {
+       const musicId = musicItem.dataset.id;
+       console.log(musicId);
+       // Điều hướng đến trang chi tiết sản phẩm
+       redirectToProductDetail(musicId);
+     }
+  }
+});
+
+// Hàm điều hướng đến trang chi tiết sản phẩm
+function redirectToProductDetail(musicId) {
+  // Định dạng URL của trang chi tiết dựa trên productId
+  const detailUrl = `detailalbums.html?id=${musicId}`;
+
+  // Chuyển hướng đến trang chi tiết
+  window.location.href = detailUrl;
+  console.log(detailUrl);
+}
+
+// chuyển sang trang daital
+const musiclistt = document.querySelector(".list-albumsss2");
+
+musiclistt.addEventListener("click", (e) => {
+  const target = e.target;
+
+  //kiểm tra xem bút được click có phải read more hay không
+  if (target.classList.contains("name-music-box")) {
+     // Lấy phần tử cha chứa thuộc tính data-id
+     const musicItem = target.closest(".music-box");
+
+     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+     if (musicItem && musicItem.dataset.id) {
+       const musicId = musicItem.dataset.id;
+       console.log(musicId);
+       // Điều hướng đến trang chi tiết sản phẩm
+       redirectToProductDetaill(musicId);
+     }
+  }
+});
+
+// Hàm điều hướng đến trang chi tiết sản phẩm
+function redirectToProductDetaill(musicId) {
+  // Định dạng URL của trang chi tiết dựa trên productId
+  const detailUrl = `detailalbums.html?id=${musicId}`;
+
+  // Chuyển hướng đến trang chi tiết
+  window.location.href = detailUrl;
+  console.log(detailUrl);
+}
+
+
+// chuyển sang trang daital
+const musiclisttttt = document.querySelector(".list-song");
+
+musiclisttttt.addEventListener("click", (e) => {
+  const target = e.target;
+
+  //kiểm tra xem bút được click có phải read more hay không
+  if (target.classList.contains("name-music")) {
+     // Lấy phần tử cha chứa thuộc tính data-id
+     const musicItem = target.closest(".song");
+
+     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+     if (musicItem && musicItem.dataset.id) {
+       const musicId = musicItem.dataset.id;
+       console.log(musicId);
+       // Điều hướng đến trang chi tiết sản phẩm
+       redirectToProductDetailllll(musicId);
+     }
+  }
+});
+
+// Hàm điều hướng đến trang chi tiết sản phẩm
+function redirectToProductDetailllll(musicId) {
+  // Định dạng URL của trang chi tiết dựa trên productId
+  const detailUrl = `detailmusic.html?id=${musicId}`;
+
+  // Chuyển hướng đến trang chi tiết
+  window.location.href = detailUrl;
+  console.log(detailUrl);
 }

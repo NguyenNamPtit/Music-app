@@ -1,3 +1,6 @@
+.albumsss{
+  display: flex;
+}
 /* Header */
 .container-fluid {
   background-color: var(--color-header);

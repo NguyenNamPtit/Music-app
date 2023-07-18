@@ -1,3 +1,12 @@
+.info-users.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row .col {
+  margin: 0;
+  padding: 0;
+}
+
 /*User*/
 .info-users {
   background-color: #0e1d30;
@@ -13,6 +22,7 @@
   font-size: 36px;
   color: #fff;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .info-account {
   display: flex;
@@ -98,4 +108,31 @@
 }
 .info-song h5 {
   color: #fff;
+}
+
+@media only screen and (min-width:1024px ) and (max-width:1366px)  {
+    
+    .playlist-musicc{
+      width: 400px;
+    }
+    .info-account{
+      margin-bottom: 115px;
+      margin-top: 115px !important;
+    }
+}
+
+@media only screen and (min-width:375px)  and (max-width: 812px){
+  .playlist-musicc{
+    width: 300px;
+  }
+  
+}
+@media only screen and (min-width:320px) and ( max-width:568px) {
+
+  .users-name input, .email-account input, .phone-account input, .password-account input, .password-account input {
+    width: 250px;
+  }
+  .playlist-musicc{
+    width: 250px;
+  }
 }

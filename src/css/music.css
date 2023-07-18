@@ -145,7 +145,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 20%;
+  margin-left: 25%;
   height: 243px;
 }
 .item-music:hover h2 {
@@ -271,6 +271,12 @@
   color: #ffff;
   background-color: #252b4d;
   transition: 0.5s ease;
+}
+.button-icon a{
+  color: #fff;
+}
+.button-icon:hover a{
+  color: #fff;
 }
 .button-icon:hover {
   background: transparent;

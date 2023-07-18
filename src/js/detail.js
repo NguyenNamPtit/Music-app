@@ -34,14 +34,14 @@ async function getMusics(api) {
 }
 
 const musicss = await getMusics(API_URL);
-console.log(musicss);
+// console.log(musicss);
 // render
 const listAlbums = $(".list-albumsss1");
 const renderAlbums = (items) =>
   items
     .map(
       (item) => `
-         <div class="music-box ">
+         <div data-id="${item.id}" class="music-box ">
             <div class="wrapper-music-box ">
               <img
                 class="img-music-box"
@@ -52,7 +52,7 @@ const renderAlbums = (items) =>
               <div class="bg-overlay"></div>
             </div>
             <div class="music-box-content mt-2">
-              <a  class="name-music-box fs-20" href="./detailalbums.html"
+              <a  class="name-music-box fs-20" 
                 >${item.singername}</a
               >
               
@@ -120,37 +120,38 @@ const renderMusicAlbums = (item) =>
       `
     )
     .join("");
-
+    
 $(() => {
+  
   musicalbums.html(renderMusicAlbums(musicss.slice(0, 4)));
 });
 //
-const musicalbumss = $(".albumss");
-const renderMusicAlbumss = (item) =>
-  item
-    .map(
-      (item) => `
+// const musicalbumss = $(".albumss");
+// const renderMusicAlbumss = (item) =>
+//   item
+//     .map(
+//       (item) => `
     
-        <img src="${item.img}" alt="" />
-        <div>
-          <div class="info-albumss">
-            <h2>${item.musicName}</h2>
-            <p>4 songs</p>
-            <p><span>Released:</span> September 20th, 2022</p>
-          </div>
-          <div class="list-buttonn">
-            <button class="playy-all">Play All</button>
-            <button class="add-to-queue">Add To Queue</button>
-          </div>
-        </div>
+//         <img src="${item.img}" alt="" />
+//         <div>
+//           <div class="info-albumss">
+//             <h2>${item.musicName}</h2>
+//             <p>4 songs</p>
+//             <p><span>Released:</span> September 20th, 2022</p>
+//           </div>
+//           <div class="list-buttonn">
+//             <button class="playy-all">Play All</button>
+//             <button class="add-to-queue">Add To Queue</button>
+//           </div>
+//         </div>
       
-      `
-    )
-    .join("");
+//       `
+//     )
+//     .join("");
 
-$(() => {
-  musicalbumss.html(renderMusicAlbumss(musicss.slice(0, 1)));
-});
+// $(() => {
+//   musicalbumss.html(renderMusicAlbumss(musicss.slice(0, 1)));
+// });
 
 //
 //
@@ -449,4 +450,86 @@ if (storedUser) {
     localStorage.setItem("Users", JSON.stringify(Users));
   };
   logout.addEventListener("click", Logout);
+}
+
+
+
+
+//lấy id thông tin sản phẩm và hiển thị
+// Lấy tham số id từ URL
+const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams)
+const musicId = urlParams.get("id");
+
+// Hàm lấy thông tin chi tiết sản phẩm từ API
+function getProductDetails(musicId) {
+  fetch(` https://api-app-mu.vercel.app/musics/${musicId}`)
+    .then(response => response.json())
+    .then(data => {
+      // Hiển thị thông tin sản phẩm trong giao diện người dùng
+      displayProductDetails(data);
+      console.log(data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+function displayProductDetails (data){
+  const musicContainer = document.querySelector('.albumss');
+
+  const musicItem = document.createElement('div');
+  musicItem.classList.add('albumsss');
+
+  musicItem.innerHTML = `
+  <img src="${data.img}" alt="" />
+        <div>
+          <div class="info-albumss">
+            <h2>${data.musicName}</h2>
+            <p>4 songs</p>
+            <p><span>Released:</span> September 20th, 2022</p>
+          </div>
+          <div class="list-buttonn">
+            <button class="playy-all">Play All</button>
+            <button class="add-to-queue">Add To Queue</button>
+          </div>
+        </div>
+  `;
+
+  musicContainer.appendChild(musicItem);
+
+
+}
+getProductDetails(musicId)
+
+
+
+// chuyển sang trang daital
+const musiclist = document.querySelector(".list-albumsss1");
+
+musiclist.addEventListener("click", (e) => {
+  const target = e.target;
+
+  //kiểm tra xem bút được click có phải read more hay không
+  if (target.classList.contains("name-music-box")) {
+     // Lấy phần tử cha chứa thuộc tính data-id
+     const musicItem = target.closest(".music-box");
+
+     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+     if (musicItem && musicItem.dataset.id) {
+       const musicId = musicItem.dataset.id;
+       console.log(musicId);
+       // Điều hướng đến trang chi tiết sản phẩm
+       redirectToProductDetail(musicId);
+     }
+  }
+});
+
+// Hàm điều hướng đến trang chi tiết sản phẩm
+function redirectToProductDetail(musicId) {
+  // Định dạng URL của trang chi tiết dựa trên productId
+  const detailUrl = `detailalbums.html?id=${musicId}`;
+
+  // Chuyển hướng đến trang chi tiết
+  window.location.href = detailUrl;
+  console.log(detailUrl);
 }

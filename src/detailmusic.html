@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/img/logo.png" />
-    <link rel="stylesheet" href="./css/detailmusic.css" />
+    <link rel="stylesheet" href="./css/detail.css" />
+    <link rel="stylesheet" href="./css/global.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -17,7 +19,6 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MusicBeat</title>
   </head>
   <body>
@@ -114,18 +115,14 @@
         </nav>
       </div>
     </div>
-    <div class="banner">
-      <div class="titlle">
-        <h2>The MusicBeat</h2>
-      </div>
-    </div>
     <div class="box-albums">
       <div class="albumss flex">
-        <img src="./assets/img/Albums5.jpg" alt="" />
+        <!-- <div class="albumsss">
+          <img src="./assets/img/Albums5.jpg" alt="" />
         <div>
           <div class="info-albumss">
             <h2>Endless Thing 2</h2>
-
+            <p>4 songs</p>
             <p><span>Released:</span> September 20th, 2022</p>
           </div>
           <div class="list-buttonn">
@@ -133,33 +130,16 @@
             <button class="add-to-queue">Add To Queue</button>
           </div>
         </div>
+        </div> -->
       </div>
-
+      
       <div class="list-albums">
         <div class="container">
           <div class="title-albums">
             <h2>Listen The Best Album</h2>
           </div>
-          <div class="list-albumsss mt-4">
-            <div class="music-box">
-              <div class="wrapper-music-box">
-                <img
-                  class="img-music-box"
-                  src="./assets/img/Albums5.jpg"
-                  alt="music box"
-                />
-                <i class="bi bi-play-circle icon-play-music-box"></i>
-                <div class="bg-overlay"></div>
-              </div>
-              <div class="music-box-content mt-2">
-                <a class="name-music-box fs-20" href="./detailmusic.html"
-                  >Lucky</a
-                >
-                <p class="name-single-music-box fs-14">Justin Biber</p>
-              </div>
-            </div>
-
-            <div class="music-box">
+          <div class="list-albumsss1 mt-4">
+            <!-- <div class="music-box">
               <div class="wrapper-music-box">
                 <img
                   class="img-music-box"
@@ -190,6 +170,7 @@
                 <p class="name-single-music-box fs-14">Justin Biber</p>
               </div>
             </div>
+
             <div class="music-box">
               <div class="wrapper-music-box">
                 <img
@@ -203,133 +184,147 @@
               <div class="music-box-content mt-2">
                 <a class="name-music-box fs-20" href="">Lucky</a>
                 <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div>
+            <div class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="./assets/img/Albums5.jpg"
+                  alt="music box"
+                />
+                <i class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" href="">Lucky</a>
+                <p class="name-single-music-box fs-14">Justin Biber</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="play-wrapper">
+      <div class="player-close">
+        <!-- <i class="fa fa-angle-up" aria-hidden="true"></i> -->
+        <!-- <span><i class="bi bi-chevron-up"></i></span> -->
+        <span><i class="fa-solid fa-chevron-down"></i></span>
+        <!-- <i class="bi bi-chevron-up down-up"></i> -->
+      </div>
+      <div class="player-mid">
+        <div class="sound-bar flex">
+          <div class="music-bar">
+            <div class="name-musicc-box flex">
+              <img class="song-thumbnail" src="./assets/img/Song2.jpg" alt="" />
+              <div class="name-musicel">
+                <h2 class="name-song">Don't Be Shy</h2>
+                <p class="name-single-song">Jennifer Kelly</p>
+              </div>
+            </div>
+          </div>
+          <div class="tools-sound-bar flex">
+            <div class="button-sound-bar flex">
+              <div class="button-arrow-left">
+                <button class="btn-prev-song">
+                  <i class="bi bi-rewind"></i>
+                </button>
+              </div>
+              <div class="button-play-music">
+                <button class="btn-play">
+                  <i class="bi bi-play"></i>
+                </button>
+                <button class="btn-pause play-none">
+                  <i class="bi bi-pause-fill"></i>
+                </button>
+              </div>
+              <div class="button-arrow-right">
+                <button class="btn-next-song">
+                  <i class="bi bi-fast-forward"></i>
+                </button>
+              </div>
+              <audio class="audio" onended="resetMusic()" src=""></audio>
+            </div>
+            <div class="progress-music">
+              <div class="seek-bar" style="width: 100%">
+                <div class="play-bar" style="width: 0%">
+                  <div class="bullet"></div>
+                </div>
+              </div>
+              <div class="time-hoder">
+                <span class="current-time">00:00</span>
+                <span class="duration">4:30</span>
+              </div>
+            </div>
+            <div class="product flex">
+              <div class="volume-sound-bar">
+                <button>
+                  <i class="bi bi-volume-up volume"></i>
+                  <i class="bi bi-volume-mute volume-mute play-none"></i>
+                </button>
+              </div>
+              <div class="karaoke-sound-bar">
+                <button>
+                  <i class="bi bi-mic"></i>
+                </button>
+              </div>
+              <div class="random-sound-bar">
+                <button>
+                  <i class="bi bi-shuffle random"></i>
+                </button>
+              </div>
+              <div class="reloat-sound-bar">
+                <button>
+                  <i class="bi bi-repeat reloat"></i>
+                </button>
+              </div>
+              <div class="queue-wrapper">
+                <button class="button-queue">Queue</button>
+                <div class="playlist-wrap">
+                  <h2>Queue</h2>
+                  <div
+                    class="queue-cls"
+                    style="height: 200px; overflow: visible"
+                  >
+                    <div class="queue-box">
+                      <div class="queue-item">
+                        <ul>
+                          <li class="playlist-current">
+                            <div>
+                              <a href="">
+                                <span class="queue-img">
+                                  <img src="./assets/img/Song5.jpg" alt="" />
+                                </span>
+                                <div class="queue-data">
+                                  Blossom
+                                  <span class="by-artist"
+                                    >by Virginia, Carl Brown</span
+                                  >
+                                </div>
+                              </a>
+                              <a href="" class="queue-icon">
+                                <span class="queue-close">
+                                  <i class="bi bi-x"></i>
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="queue-btn">
+                    <a href="" class="queue-btn-clear">Clear</a>
+                    <a href="" class="queue-btn-save">Save</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="container">
-          <div class="title-albums">
-            <h2>Trending Albums</h2>
-          </div>
-          <div class="list-albumsss mt-4">
-            <div class="music-box">
-              <div class="wrapper-music-box">
-                <img
-                  class="img-music-box"
-                  src="./assets/img/Albums5.jpg"
-                  alt="music box"
-                />
-                <i class="bi bi-play-circle icon-play-music-box"></i>
-                <div class="bg-overlay"></div>
-              </div>
-              <div class="music-box-content mt-2">
-                <a class="name-music-box fs-20" href="">Lucky</a>
-                <p class="name-single-music-box fs-14">Justin Biber</p>
-              </div>
-            </div>
-  
-            <div class="music-box">
-              <div class="wrapper-music-box">
-                <img
-                  class="img-music-box"
-                  src="./assets/img/Albums5.jpg"
-                  alt="music box"
-                />
-                <i class="bi bi-play-circle icon-play-music-box"></i>
-                <div class="bg-overlay"></div>
-              </div>
-              <div class="music-box-content mt-2">
-                <a class="name-music-box fs-20" href="">Lucky</a>
-                <p class="name-single-music-box fs-14">Justin Biber</p>
-              </div>
-            </div>
-  
-            <div class="music-box">
-              <div class="wrapper-music-box">
-                <img
-                  class="img-music-box"
-                  src="./assets/img/Albums5.jpg"
-                  alt="music box"
-                />
-                <i class="bi bi-play-circle icon-play-music-box"></i>
-                <div class="bg-overlay"></div>
-              </div>
-              <div class="music-box-content mt-2">
-                <a class="name-music-box fs-20" href="">Lucky</a>
-                <p class="name-single-music-box fs-14">Justin Biber</p>
-              </div>
-            </div>
-  
-            <div class="music-box">
-              <div class="wrapper-music-box">
-                <img
-                  class="img-music-box"
-                  src="./assets/img/Albums5.jpg"
-                  alt="music box"
-                />
-                <i class="bi bi-play-circle icon-play-music-box"></i>
-                <div class="bg-overlay"></div>
-              </div>
-              <div class="music-box-content mt-2">
-                <a class="name-music-box fs-20" href="">Lucky</a>
-                <p class="name-single-music-box fs-14">Justin Biber</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div id="dpp">
-          <div class="title-albums">
-            <h2>Trending Albums</h2>
-          </div>
-          <div class="slider-albums flex">
-            <div class="item-albums">
-              <img src="./assets/img/Albums6.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-            <div class="item-albums">
-              <img src="./assets/img/Albums7.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-            <div class="item-albums">
-              <img src="./assets/img/Albums8.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-            <div class="item-albums">
-              <img src="./assets/img/Albums9.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-            <div class="item-albums">
-              <img src="./assets/img/Albums4.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-            <div class="item-albums">
-              <img src="./assets/img/Albums5.jpg" alt="" />
-              <div class="info-albums">
-                <h3>Cloud Nine</h3>
-                <p>Jennifer Kelly, Virginia Harris</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
-    <script type="module" src="./js/detailmusic.js"></script>
+    <script type="module" src="./js/detail.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
