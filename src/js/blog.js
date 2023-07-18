@@ -7,27 +7,18 @@ import "slick-carousel/slick/slick.min.js";
 import $ from "jquery";
 import { musics } from "./db";
 // import "../css/global.css";
-// GET_API:
-const API_URL = "https://api-app-mu.vercel.app/blogs";
+import { API_URL, getApi } from "../utils/utils";
 
-async function getMusics(api) {
-  try {
-    let res = await fetch(api);
-    return await res.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
+const loadApi = async () => {
+  const blogs = await getApi(API_URL);
+  // console.log(blogs);
 
-const blogs = await getMusics(API_URL);
-console.log(blogs);
-
-//in ra UI
-const bloggs = $(".Blog-bigg");
-const RenderBlog = (items) =>
-  items
-    .map(
-      (items) => `
+  //in ra UI
+  const bloggs = $(".Blog-bigg");
+  const RenderBlog = (items) =>
+    items
+      .map(
+        (items) => `
 
 <div data-id="${items.id}" class="big-blog col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <div class="blog">
@@ -52,144 +43,144 @@ const RenderBlog = (items) =>
 </div>
         </div>
 `
-    )
-    .join("");
-$(() => {
-  bloggs.html(RenderBlog(blogs.slice(0, 4)));
-});
+      )
+      .join("");
+  $(() => {
+    bloggs.html(RenderBlog(blogs.slice(0, 4)));
+  });
 
-//Mobile
-const menumoble = document.querySelector(".menu-moble");
-const overlay = document.querySelector(".nav-overlay");
-const iconmenu = document.querySelector(".icon-menu-moble");
-const closemenu = document.querySelector(".close-menu-moble");
-const btnclicknavbar = document.querySelector(".click-navbar");
-btnclicknavbar.addEventListener("click", (event) => {
-  iconmenu.classList.toggle("play-moble-none");
-  closemenu.classList.toggle("play-moble-none");
-  overlay.classList.toggle("play-moble-none");
-  menumoble.classList.toggle("play-moble-close");
-});
+  //Mobile
+  const menumoble = document.querySelector(".menu-moble");
+  const overlay = document.querySelector(".nav-overlay");
+  const iconmenu = document.querySelector(".icon-menu-moble");
+  const closemenu = document.querySelector(".close-menu-moble");
+  const btnclicknavbar = document.querySelector(".click-navbar");
+  btnclicknavbar.addEventListener("click", (event) => {
+    iconmenu.classList.toggle("play-moble-none");
+    closemenu.classList.toggle("play-moble-none");
+    overlay.classList.toggle("play-moble-none");
+    menumoble.classList.toggle("play-moble-close");
+  });
 
-//Logout
+  //Logout
 
-// Lấy thông tin đăng nhập từ local storage
-var storedUser = localStorage.getItem("Users");
+  // Lấy thông tin đăng nhập từ local storage
+  var storedUser = localStorage.getItem("Users");
 
-const iconUser = document.querySelector(".icon-user");
-const logout = document.querySelector(".btn-logout");
-const register = document.querySelector(".btn-register");
-const login = document.querySelector(".btn-login");
-//
-if (storedUser) {
-  var Users = JSON.parse(storedUser);
-  //ham check
+  const iconUser = document.querySelector(".icon-user");
+  const logout = document.querySelector(".btn-logout");
+  const register = document.querySelector(".btn-register");
+  const login = document.querySelector(".btn-login");
+  //
+  if (storedUser) {
+    var Users = JSON.parse(storedUser);
+    //ham check
 
-  for (var i = 0; i < Users.length; i++) {
-    var obj = Users[i];
-    if (obj.isLogin == true) {
-      iconUser.classList.remove("button-none");
-      logout.classList.remove("button-none");
-      register.classList.add("button-none");
-      login.classList.add("button-none");
-    }
-  }
-
-  //hàm logout
-  var keyToModify = "isLogin";
-  var newValue = false;
-  const Logout = () => {
     for (var i = 0; i < Users.length; i++) {
       var obj = Users[i];
-      obj[keyToModify] = newValue;
-
-      iconUser.classList.add("button-none");
-      logout.classList.add("button-none");
-      register.classList.remove("button-none");
-      login.classList.remove("button-none");
+      if (obj.isLogin == true) {
+        iconUser.classList.remove("button-none");
+        logout.classList.remove("button-none");
+        register.classList.add("button-none");
+        login.classList.add("button-none");
+      }
     }
-    // Tạo một thông báo thành công
-    Toastify({
-      text: "Đã đăng xuất thành công!",
-      duration: 1000, // Thời gian hiển thị (ms)
-      close: false, // Hiển thị nút đóng
-      gravity: "top", // Vị trí của thông báo ("top", "bottom", "center")
-      backgroundColor: "linear-gradient(to right,#b06ab3, #b06ab3)", // Màu nền
-    }).showToast();
-    // Lưu mảng mới vào localStorage
-    localStorage.setItem("Users", JSON.stringify(Users));
-  };
-  logout.addEventListener("click", Logout);
-}
 
-// Tạp phân trang cho trang web
+    //hàm logout
+    var keyToModify = "isLogin";
+    var newValue = false;
+    const Logout = () => {
+      for (var i = 0; i < Users.length; i++) {
+        var obj = Users[i];
+        obj[keyToModify] = newValue;
 
-const itemsPerPage = 4; // Số phần tử hiển thị trên mỗi trang
-let currentPage = 1;
-
-// Hàm lấy dữ liệu từ API và khởi tạo phân trang
-function fetchDataFromAPI() {
-  displayPage(currentPage);
-  createPagination();
-}
-
-// Hàm hiển thị phần từ trên trang hiện tại
-function displayPage(pageNumber) {
-  const startIndex = (pageNumber - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const slicedData = blogs.slice(startIndex, endIndex);
-
-  const container = document.querySelector(".Blog-bigg");
-  container.innerHTML = ""; // Xóa nội dung container cũ
-
-  const blogItems = RenderBlogs(slicedData);
-  container.innerHTML = blogItems;
-
-  markCurrentPage(); // Đánh dấu trang hiện tại
-}
-
-// Hàm tạo phân trang
-function createPagination() {
-  const totalPages = Math.ceil(blogs.length / itemsPerPage);
-  const paginationDiv = document.getElementById("pagination");
-  paginationDiv.innerHTML = "";
-
-  for (let i = 1; i <= totalPages; i++) {
-    const pageLink = document.createElement("button");
-    pageLink.classList.add("page");
-    pageLink.href = "#blogs";
-    pageLink.textContent = i;
-    pageLink.addEventListener("click", () => {
-      currentPage = i;
-      displayPage(currentPage);
-      window.scrollTo(0, 0); // Cuộn trang lên đầu khi chuyển trang
-      markCurrentPage(); // Đánh dấu trang hiện tại
-    });
-
-    paginationDiv.appendChild(pageLink);
+        iconUser.classList.add("button-none");
+        logout.classList.add("button-none");
+        register.classList.remove("button-none");
+        login.classList.remove("button-none");
+      }
+      // Tạo một thông báo thành công
+      Toastify({
+        text: "Đã đăng xuất thành công!",
+        duration: 1000, // Thời gian hiển thị (ms)
+        close: false, // Hiển thị nút đóng
+        gravity: "top", // Vị trí của thông báo ("top", "bottom", "center")
+        backgroundColor: "linear-gradient(to right,#b06ab3, #b06ab3)", // Màu nền
+      }).showToast();
+      // Lưu mảng mới vào localStorage
+      localStorage.setItem("Users", JSON.stringify(Users));
+    };
+    logout.addEventListener("click", Logout);
   }
 
-  markCurrentPage(); // Đánh dấu trang hiện tại sau khi tạo phân trang
-}
+  // Tạp phân trang cho trang web
 
-// Đánh dấu trang hiện tại bằng lớp active
-function markCurrentPage() {
-  const pages = document.getElementsByClassName("page");
+  const itemsPerPage = 4; // Số phần tử hiển thị trên mỗi trang
+  let currentPage = 1;
 
-  for (let i = 0; i < pages.length; i++) {
-    if (i + 1 === currentPage) {
-      pages[i].classList.add("active");
-    } else {
-      pages[i].classList.remove("active");
+  // Hàm lấy dữ liệu từ API và khởi tạo phân trang
+  function fetchDataFromAPI() {
+    displayPage(currentPage);
+    createPagination();
+  }
+
+  // Hàm hiển thị phần từ trên trang hiện tại
+  function displayPage(pageNumber) {
+    const startIndex = (pageNumber - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const slicedData = blogs.slice(startIndex, endIndex);
+
+    const container = document.querySelector(".Blog-bigg");
+    container.innerHTML = ""; // Xóa nội dung container cũ
+
+    const blogItems = RenderBlogs(slicedData);
+    container.innerHTML = blogItems;
+
+    markCurrentPage(); // Đánh dấu trang hiện tại
+  }
+
+  // Hàm tạo phân trang
+  function createPagination() {
+    const totalPages = Math.ceil(blogs.length / itemsPerPage);
+    const paginationDiv = document.getElementById("pagination");
+    paginationDiv.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageLink = document.createElement("button");
+      pageLink.classList.add("page");
+      pageLink.href = "#blogs";
+      pageLink.textContent = i;
+      pageLink.addEventListener("click", () => {
+        currentPage = i;
+        displayPage(currentPage);
+        window.scrollTo(0, 0); // Cuộn trang lên đầu khi chuyển trang
+        markCurrentPage(); // Đánh dấu trang hiện tại
+      });
+
+      paginationDiv.appendChild(pageLink);
+    }
+
+    markCurrentPage(); // Đánh dấu trang hiện tại sau khi tạo phân trang
+  }
+
+  // Đánh dấu trang hiện tại bằng lớp active
+  function markCurrentPage() {
+    const pages = document.getElementsByClassName("page");
+
+    for (let i = 0; i < pages.length; i++) {
+      if (i + 1 === currentPage) {
+        pages[i].classList.add("active");
+      } else {
+        pages[i].classList.remove("active");
+      }
     }
   }
-}
 
-// Hàm render các mục blog
-function RenderBlogs(items) {
-  return items
-    .map(
-      (item) => `
+  // Hàm render các mục blog
+  function RenderBlogs(items) {
+    return items
+      .map(
+        (item) => `
     <div data-id="${item.id}" class="big-blog col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="blog">
         <img src="${item.img}" alt="" />
@@ -211,44 +202,42 @@ function RenderBlogs(items) {
       </div>
     </div>
     `
-    )
-    .join("");
-}
-// Gọi hàm để lấy dữ liệu từ API và khởi tạo phân trang
-fetchDataFromAPI();
-
-// chuyển sang trang daital
-const bloglist = document.querySelector(".Blog-bigg");
-
-bloglist.addEventListener("click", (e) => {
-  const target = e.target;
-
-  //kiểm tra xem bút được click có phải read more hay không
-  if (target.classList.contains("readmore")) {
-     // Lấy phần tử cha chứa thuộc tính data-id
-     const blogItem = target.closest(".big-blog");
-
-     // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
-     if (blogItem && blogItem.dataset.id) {
-       const blogId = blogItem.dataset.id;
-       console.log(blogId);
-       // Điều hướng đến trang chi tiết sản phẩm
-       redirectToProductDetail(blogId);
-     }
+      )
+      .join("");
   }
-});
+  // Gọi hàm để lấy dữ liệu từ API và khởi tạo phân trang
+  fetchDataFromAPI();
 
-// Hàm điều hướng đến trang chi tiết sản phẩm
-function redirectToProductDetail(blogId) {
-  // Định dạng URL của trang chi tiết dựa trên productId
-  const detailUrl = `detailblog.html?id=${blogId}`;
+  // chuyển sang trang daital
+  const bloglist = document.querySelector(".Blog-bigg");
 
-  // Chuyển hướng đến trang chi tiết
-  window.location.href = detailUrl;
-  console.log(detailUrl);
-}
+  bloglist.addEventListener("click", (e) => {
+    const target = e.target;
 
+    //kiểm tra xem bút được click có phải read more hay không
+    if (target.classList.contains("readmore")) {
+      // Lấy phần tử cha chứa thuộc tính data-id
+      const blogItem = target.closest(".big-blog");
 
+      // Kiểm tra xem blogItem có tồn tại và có thuộc tính data-id không
+      if (blogItem && blogItem.dataset.id) {
+        const blogId = blogItem.dataset.id;
+        console.log(blogId);
+        // Điều hướng đến trang chi tiết sản phẩm
+        redirectToProductDetail(blogId);
+      }
+    }
+  });
 
+  // Hàm điều hướng đến trang chi tiết sản phẩm
+  function redirectToProductDetail(blogId) {
+    // Định dạng URL của trang chi tiết dựa trên productId
+    const detailUrl = `detailblog.html?id=${blogId}`;
 
+    // Chuyển hướng đến trang chi tiết
+    window.location.href = detailUrl;
+    console.log(detailUrl);
+  }
+};
 
+loadApi();

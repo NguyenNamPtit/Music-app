@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.min.js";
 import $ from "jquery";
 import { musics } from "./db";
 // import "../css/global.css";
+
 //Mobile
 const menumoble = document.querySelector(".menu-moble");
 const overlay = document.querySelector(".nav-overlay");
