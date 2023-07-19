@@ -288,7 +288,7 @@
 .song {
   transition: all 0.2 linear;
   cursor: pointer;
-  max-width: max-content;
+  /* max-width: max-content; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -394,10 +394,10 @@
 .footer {
   background-color: #0e1a26;
   max-width: 100%;
-  height: 100%px;
+  /* height: 100%px; */
 }
 .time-work {
-  width: 326px;
+  /* width: 326px; */
   height: 222px;
   padding-top: 30px;
 }
@@ -435,7 +435,7 @@
 .contact {
   padding-top: 30px;
 
-  width: 303px;
+  /* width: 303px; */
   height: 220px;
 }
 .contact h6 {
@@ -460,7 +460,7 @@
   margin-bottom: 10px;
 }
 .newsletter {
-  width: 366px;
+  /* width: 366px; */
   height: 270px;
   padding-top: 30px;
 }
@@ -1251,7 +1251,7 @@
 }
 
 .list-albumsss1 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss1 .slick-prev,
@@ -1303,7 +1303,7 @@
 }
 
 .list-albumsss2 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss2 .slick-prev,
@@ -1352,7 +1352,7 @@
 }
 
 .list-albumsss3 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss3 .slick-prev,
@@ -1401,7 +1401,7 @@
 }
 
 .list-albumsss4 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss4 .slick-prev,

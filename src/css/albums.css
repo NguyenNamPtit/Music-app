@@ -239,7 +239,7 @@
 }
 
 .list-albumsss1 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss1 .slick-prev,
@@ -287,7 +287,7 @@
 }
 
 .list-albumsss2 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss2 .slick-prev,
@@ -359,7 +359,7 @@
 .song {
   transition: all 0.2 linear;
   cursor: pointer;
-  max-width: max-content;
+  /* max-width: max-content; */
   margin: auto;
   display: flex;
   flex-direction: column;

@@ -238,6 +238,7 @@
   margin-top: 30px;
   border-radius: 10px;
   position: relative;
+  display: flex;
 }
 .first-music p {
   font-size: 12px;
@@ -392,7 +393,7 @@
 }
 
 .list-albumsss1 .slick-slide {
-  display: flex;
+  /* display: flex; */
 }
 
 .list-albumsss1 .slick-prev,
