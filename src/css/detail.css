@@ -4,11 +4,15 @@
 /* Header */
 .container-fluid {
   background-color: var(--color-header);
+  background-color: #1b2039;
   /* position: fixed;
   z-index: 0; */
 }
 .menu-moble {
   display: none;
+}
+.row{
+  display: flex;
 }
 .click-navbar button {
   background-color: #b06ab3;
@@ -57,6 +61,8 @@
 }
 .basic-menu {
   margin-right: 45px;
+  display: flex;
+  align-items: center;
 }
 .btn-register button,
 .btn-login button,
@@ -249,6 +255,7 @@
 }
 .content-music {
   width: 300px;
+  display: flex;
 }
 .content-music img {
   width: 50px;
@@ -440,12 +447,16 @@
   height: 95px;
   width: 100%;
   background-color: rgba(32, 37, 64, 0.92);
+  display: flex;
 }
 .music-bar {
   width: 290px;
   height: 95px;
   border-top-right-radius: 10px;
   background-color: #b06ab3;
+}
+.name-musicc-box{
+  display: flex;
 }
 .name-musicc-box img {
   margin-right: 10px;
@@ -468,11 +479,15 @@
   color: #ffff;
   font-weight: 700;
   margin-bottom: 5px;
+  margin-top: 0px;
 }
 .name-musicel p {
   font-size: 14px;
   color: #ffff;
   font-weight: 200;
+}
+.button-sound-bar{
+  display: flex;
 }
 .button-arrow-left button {
   width: 50px;
@@ -541,6 +556,10 @@
   height: 65px;
   margin-left: 80px;
   margin-top: 15px;
+  display: flex;
+}
+.product{
+  display: flex;
 }
 .progress-music {
   width: 200px;
