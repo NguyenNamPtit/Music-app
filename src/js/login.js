@@ -1,6 +1,7 @@
 // const { event } = require("jquery");
 
 //Valiable
+let formIsValid;
 const formEl = document.querySelector(".form");
 const emailEl = document.querySelector("#email");
 const passwordEl = document.querySelector("#password");
