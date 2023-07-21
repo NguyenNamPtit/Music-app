@@ -1,7 +1,32 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick.min.js";
+
+import $ from "jquery";
+ //Mobile
+ const menumoble = document.querySelector(".menu-moble");
+ const overlay = document.querySelector(".nav-overlay");
+ const iconmenu = document.querySelector(".icon-menu-moble");
+ const closemenu = document.querySelector(".close-menu-moble");
+ const btnclicknavbar = document.querySelector(".click-navbar");
+ btnclicknavbar.addEventListener("click", (event) => {
+   iconmenu.classList.toggle("play-moble-none");
+   closemenu.classList.toggle("play-moble-none");
+   overlay.classList.toggle("play-moble-none");
+   menumoble.classList.toggle("play-moble-close");
+ });
+
+
 // Change Account
 
 //lấy dữ liệu từ trong local
 var storedUser = localStorage.getItem("Users");
+const iconUser = document.querySelector(".icon-user");
+const logout = document.querySelector(".btn-logout");
+const register = document.querySelector(".btn-register");
+const login = document.querySelector(".btn-login");
 // console.log(storedUser);
 if (storedUser) {
   var Users = JSON.parse(storedUser);
@@ -82,6 +107,44 @@ if (storedUser) {
     email.value = "";
     password.value = "";
   });
+
+  //ham check
+
+  for (var i = 0; i < Users.length; i++) {
+    var obj = Users[i];
+    if (obj.isLogin == true) {
+      iconUser.classList.remove("button-none");
+      logout.classList.remove("button-none");
+      register.classList.add("button-none");
+      login.classList.add("button-none");
+    }
+  }
+
+  //hàm logout
+  var keyToModify = "isLogin";
+  var newValue = false;
+  const Logout = () => {
+    for (var i = 0; i < Users.length; i++) {
+      var obj = Users[i];
+      obj[keyToModify] = newValue;
+
+      iconUser.classList.add("button-none");
+      logout.classList.add("button-none");
+      register.classList.remove("button-none");
+      login.classList.remove("button-none");
+    }
+    // Tạo một thông báo thành công
+    Toastify({
+      text: "Đã đăng xuất thành công!",
+      duration: 1000, // Thời gian hiển thị (ms)
+      close: false, // Hiển thị nút đóng
+      gravity: "top", // Vị trí của thông báo ("top", "bottom", "center")
+      backgroundColor: "linear-gradient(to right,#b06ab3, #b06ab3)", // Màu nền
+    }).showToast();
+    // Lưu mảng mới vào localStorage
+    localStorage.setItem("Users", JSON.stringify(Users));
+  };
+  logout.addEventListener("click", Logout);
 }
 
 //Lấy dữ liệu danh sách bài hát yêu thích
@@ -201,7 +264,7 @@ $(document).ready(function () {
 });
 
 //Khi click logou thì mảng Playlist sẽ về rỗng
-const logout = document.querySelector(".btn-logout");
+// const logout = document.querySelector(".btn-logout");
 var storedData = localStorage.getItem("Playlist");
 if (storedData) {
   var Playlist = JSON.parse(storedData);
