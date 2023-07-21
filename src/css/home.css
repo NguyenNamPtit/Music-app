@@ -1533,7 +1533,7 @@
   }
   /*top song*/
   .song-sanbox {
-    margin-left: 10px;
+    margin-left: 9px;
   }
   /*footer*/
   .logo img {
@@ -1743,6 +1743,7 @@
   }
   .info-singger h4 {
     margin-top: 50px;
+    width: 360px;
   }
   .info-singger p {
     width: 283px;
@@ -2241,7 +2242,7 @@
   }
   .main-header-wrapper-top {
     flex-wrap: wrap;
-    width: 110%;
+    width: 105%;
   }
   .main-header-wrapper-top {
     margin-top: 65px;
@@ -2512,10 +2513,12 @@
   }
   .info-song p {
     font-size: 14px;
+    width: 180px;
   }
   /*top song*/
   .info-song {
     margin-left: 2px;
+    width: 180px;
   }
   /*sound bar*/
   .queue-wrapper {

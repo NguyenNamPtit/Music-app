@@ -1327,7 +1327,7 @@
   }
   /*top song*/
   .song-sanbox {
-    margin-left: 10px;
+    margin-left: 9px;
   }
   /*footer*/
   .logo img {
@@ -2384,7 +2384,7 @@
   }
   .main-header-wrapper-top {
     flex-wrap: wrap;
-    width: 110%;
+    width: 105%;
   }
   .main-header-wrapper-top {
     margin-top: 65px;
@@ -2452,7 +2452,7 @@
     font-size: 20px;
   }
   .first-music {
-    width: 365px;
+    width: 335px;
   }
   .icon {
     margin-left: 0;
@@ -2576,5 +2576,21 @@
   .queue-wrapper {
     float: right;
     margin-left: 20px;
+  }
+}
+@media only screen and (max-width: 420px){
+  .first-music{
+    width: 280px;
+  }
+  .song-sanbox{
+    margin-left: 20px;
+  }
+  .info-song {
+    margin-left: 2px;
+    width: 180px;
+  }
+  .info-song p {
+    font-size: 14px;
+    width: 180px;
   }
 }
