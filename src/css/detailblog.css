@@ -189,16 +189,16 @@
   flex-direction: column;
   align-items: center;
 }
-.containerr {
+/* .containerr {
   margin-left: 40px;
   margin-right: 40px;
   width: 1269px;
   flex-wrap: wrap;
-}
-.containerr.row {
+} */
+.row {
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
 }
 .blog {
   background-color: #252b4d;
