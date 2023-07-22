@@ -210,16 +210,15 @@
   padding-top: 50px;
   width: 100%;
 }
-.containerr {
+.Blog-bigg {
   margin-left: 40px;
   margin-right: 40px;
   width: 1269px;
   flex-wrap: wrap;
 }
-.containerr.row {
+.row {
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  
 }
 .blog {
   background-color: #252b4d;
@@ -228,6 +227,8 @@
   border-radius: 10px;
   margin-bottom: 50px;
   /* margin-left: 40px; */
+  margin-left: auto;
+  margin-right: auto;
 }
 .blog img {
   width: 510px;
