@@ -87,33 +87,33 @@ const loadApi = async () => {
   });
 
   //
-  const musicalbums = $(".music");
-  const renderMusicAlbums = (item) =>
-    item
-      .map(
-        (item) => `
-      <div class="first-music flex">
-          <p class="number">${item.id}</p>
-          <span class="songslist-play">
-            <img src="./assets/img/play_songlist.svg" alt="" />
-          </span>
-          <div class="content-music flex">
-            <img src="${item.img}" alt="" />
-            <div class="info-musicc">
-              <h2>${item.musicName}</h2>
-              <p class="singger">${item.singername}</p>
-            </div>
-          </div>
-          <span class="icon"><i class="bi bi-suit-heart"></i></span>
-          <span class="music-time">4:20</span>
-        </div>
-      `
-      )
-      .join("");
+  // const musicalbums = $(".music");
+  // const renderMusicAlbums = (item) =>
+  //   item
+  //     .map(
+  //       (item) => `
+  //     <div class="first-music flex">
+  //         <p class="number">${item.id}</p>
+  //         <span class="songslist-play">
+  //           <img src="./assets/img/play_songlist.svg" alt="" />
+  //         </span>
+  //         <div class="content-music flex">
+  //           <img src="${item.img}" alt="" />
+  //           <div class="info-musicc">
+  //             <h2>${item.musicName}</h2>
+  //             <p class="singger">${item.singername}</p>
+  //           </div>
+  //         </div>
+  //         <span class="icon"><i class="bi bi-suit-heart"></i></span>
+  //         <span class="music-time">4:20</span>
+  //       </div>
+  //     `
+  //     )
+  //     .join("");
 
-  $(() => {
-    musicalbums.html(renderMusicAlbums(musicss.slice(0, 4)));
-  });
+  // $(() => {
+  //   musicalbums.html(renderMusicAlbums(musicss.slice(0, 4)));
+  // });
   //
   // const musicalbumss = $(".albumss");
   // const renderMusicAlbumss = (item) =>

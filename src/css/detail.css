@@ -1,3 +1,8 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 .albumsss{
   display: flex;
 }
@@ -1028,6 +1033,11 @@
 /**/
 /*Desktopp 1920*/
 @media only screen and (min-width: 1900px) {
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
   /*banner*/
   .img-background {
     width: 1900px;
@@ -1050,6 +1060,11 @@
 
 /*TabLet :width >=1024 and width <1350px*/
 @media only screen and (min-width: 1024px) and (max-width: 1350px) {
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
   .container-fluid {
     height: 148px;
   }

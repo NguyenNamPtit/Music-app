@@ -179,6 +179,10 @@
   content: "";
 }
 /* List Blog */
+.Blog-bigg.row.flex {
+  margin-left: auto;
+  margin-right: auto;
+}
 .list-blog {
   background-color: #0e1a26;
   padding-top: 50px;
@@ -597,4 +601,8 @@
   .info-blog h2 {
     margin-left: 17px;
   }
+  .main-header-wrapper-top {
+    
+    width: 110%;
+}
 }
