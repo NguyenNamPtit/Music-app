@@ -138,6 +138,10 @@
 }
 }
 @media only screen and (max-width:420px){
+  .main-header-wrapper-top {
+    flex-wrap: wrap;
+    width: 103%;
+}
   .playlist-musicc{
     width: 340px !important;
   }
