@@ -447,6 +447,58 @@ body {
 .list-albumsss1 .slick-next {
   right: -60px;
 }
+
+
+
+
+.list-albumsss2 .slick-track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-albumsss2 .slick-slide {
+  /* display: flex; */
+}
+
+.list-albumsss2 .slick-prev,
+.list-albumsss2 .slick-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.list-albumsss2 .slick-prev a,
+.list-albumsss2 .slick-next a {
+  font-size: 35px;
+  color: var(--white);
+}
+
+.list-albumsss2 .slick-prev:hover a,
+.list-albumsss2 .slick-next:hover a {
+  color: var(--purple);
+}
+
+.list-albumsss2 .slick-prev:hover,
+.list-albumsss2 .slick-next:hover {
+  background-color: var(--white);
+}
+
+.list-albumsss2 .slick-prev {
+  left: -60px;
+}
+
+.list-albumsss2 .slick-next {
+  right: -60px;
+}
 /*Sound Bar*/
 .sound-bar {
   height: 95px;
@@ -1995,6 +2047,18 @@ body {
 }
 /* 320*/
 @media only screen and (max-width: 330px) {
+  .wrapper-music-box {
+    width: 200px !important;
+    max-height: 270px;
+}
+  .albumss img {
+    width: 225px;
+    height: 220px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 35px;
+}
   .item-slider-content {
     left: 30px;
   }
@@ -2172,6 +2236,11 @@ body {
     margin-left: 17.5%;
   }
   /*banner*/
+  .albumsss {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   .menu-moble {
     width: 200px;
   }

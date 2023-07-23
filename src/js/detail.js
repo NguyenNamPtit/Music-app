@@ -86,6 +86,65 @@ const loadApi = async () => {
     });
   });
 
+  const listAlbumss = $(".list-albumsss2");
+  const renderAlbumss = (item) =>
+    item
+      .map(
+        (item) => `
+        <div data-id="${item.id}" class="music-box">
+              <div class="wrapper-music-box">
+                <img
+                  class="img-music-box"
+                  src="${item.img}"
+                  alt="music box"
+                />
+                <i data-id="${item.id}" class="bi bi-play-circle icon-play-music-box"></i>
+                <div class="bg-overlay"></div>
+              </div>
+              <div class="music-box-content mt-2">
+                <a class="name-music-box fs-20" 
+                  >${item.musicName}</a
+                >
+                <p class="name-single-music-box fs-14">${item.singername}</p>
+              </div>
+            </div>
+        `
+      )
+      .join("");
+
+      $(() => {
+        listAlbumss.html(renderAlbumss(musicss));
+        listAlbumss.slick({
+          autoplay: true,
+          autoplaySpeed: 6000,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          prevArrow:
+            '<div class="slick-prev"><a class="bi bi-arrow-left-short"></a></div>',
+          nextArrow:
+            '<div class="slick-next"><a class="bi bi-arrow-right-short"></a></i></div>',
+          responsive: [
+            {
+              breakpoint: 1023,
+              settings: {
+                slidesToShow: 2,
+                centerMode: true,
+                centerPadding: "20px",
+              },
+            },
+            {
+              breakpoint: 739,
+              settings: {
+                slidesToShow: 1,
+                centerMode: true,
+                centerPadding: "20px",
+              },
+            },
+          ],
+        });
+      });
   //
   // const musicalbums = $(".music");
   // const renderMusicAlbums = (item) =>
